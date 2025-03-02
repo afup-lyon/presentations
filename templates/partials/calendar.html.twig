@@ -1,0 +1,23 @@
+<section data-background-image="img/fond-afup.png"
+         data-background-opacity="0.5">
+    <div class="r-hstack" style="gap: 60px;">
+        <div>
+            <img src="img/logos/antenne-only-icon.svg" style="width: 150px;margin: 0;" />
+        </div>
+        <div>
+            <h2>Calendrier</h2>
+        </div>
+    </div>
+
+    <div class="r-hstack" style="gap: 30px; align-items: start;">
+        <div>
+            <div style="text-align: left; margin-top: 20px; border-top: 2px dashed #c1c1c1;">
+                {% for event in config.calendrierAntenne %}
+                    <p style="font-size: 18px;">
+                        {{ event.date|format_date(locale='fr', pattern='EEEE d MMMM')|capitalize }} 👉 {{ event.title }}
+                    </p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

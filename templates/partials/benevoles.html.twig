@@ -1,0 +1,22 @@
+<section data-auto-animate
+         data-background-image="img/fond-afup.png"
+         data-background-opacity="0.5">
+    <div style="text-align: center">
+        <div>
+            <img src="img/logos/antenne-full.svg" height="80" />
+        </div>
+        <h4>Vos bénévoles</h4>
+        <div style="display: flex;justify-content: center;">
+            <div style="display: flex;flex-direction: row;align-items: center">
+                {% for benevole in config.benevoles %}
+                    <div>
+                        <img class="benevole-photo" src="img/benevoles/{{ benevole.photo }}" />
+                        <div style="font-size: 20px;">
+                            {{ benevole.nom }}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>

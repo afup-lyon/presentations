@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>AFUP Lyon</title>
+
+    <link rel="stylesheet" href="dist/reveal.css">
+    <link rel="stylesheet" href="dist/theme/white.css">
+
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/atom-one-light.css">
+</head>
+<body>
+<img src="img/logos/antenne-full.svg" id="logo-antenne"/>
+
+<div class="reveal">
+    <div class="slides">
+        <section data-afup-no-logo>
+            <img src="img/logos/antenne-full.svg"/>
+        </section>
+
+        {%~ if config.hasIntro %}
+        <!-- Intro -->
+        <section>
+            {% if config.introductionAssociation %}
+                <!-- Intro / Association -->
+                {% include('partials/intro/association.html.twig') %}
+            {% endif %}
+
+            {%~ if config.introductionBarometre %}
+                <!-- Intro / Barometre -->
+                {% include('partials/intro/barometre.html.twig') %}
+            {% endif %}
+
+            {%~ if config.introductionAntennes %}
+                <!-- Intro / Antennes -->
+                {% include('partials/intro/antennes.html.twig') %}
+            {% endif %}
+
+            {%~ if config.introductionForum %}
+                <!-- Intro / Forum -->
+                {% include('partials/intro/forum.html.twig') %}
+            {% endif %}
+        </section>
+        {% endif %}
+
+        <!-- Antenne -->
+        <section>
+            <!-- Antenne / Contacts -->
+            {% include('partials/contacts.html.twig') %}
+
+            <!-- Antenne / Benevoles -->
+            {% include('partials/benevoles.html.twig') %}
+
+            <!-- Antenne / Calendar -->
+            {% include('partials/calendar.html.twig') %}
+        </section>
+
+        {% if config.hasAfupDay %}
+        <!-- AFUP Day -->
+        {% include('partials/afup-day.html.twig') %}
+        {% endif %}
+
+        <!-- Meetup -->
+        {% include('partials/meetup.html.twig') %}
+
+        <section data-afup-no-logo>
+            <img src="img/logos/antenne-full.svg"/>
+
+            <h1>Merci 💙</h1>
+        </section>
+    </div>
+</div>
+
+<script src="dist/reveal.js"></script>
+<script src="plugin/notes/notes.js"></script>
+<script src="plugin/markdown/markdown.js"></script>
+<script src="plugin/highlight/highlight.js"></script>
+<script>
+    // More info about initialization & config:
+    // - https://revealjs.com/initialization/
+    // - https://revealjs.com/config/
+    Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+    });
+
+    Reveal.on("slidechanged", event => {
+        if (event.currentSlide.dataset.afupNoLogo !== undefined) {
+            document.getElementById("logo-antenne").style.opacity = "0";
+        } else {
+            document.getElementById("logo-antenne").style.opacity = "100";
+        }
+    });
+</script>
+</body>
+</html>

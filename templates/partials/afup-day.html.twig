@@ -1,0 +1,56 @@
+<section>
+    <section data-auto-animate
+             data-auto-animate-easing="cubic-bezier(0.770, 0.000, 0.175, 1.000)"
+             data-background-image="img/fond-afup.png"
+             data-background-opacity="0.5">
+        <img src="img/logos/afup-day.svg" />
+        <h2 style="margin-top: 20px;">AFUP Day {{ config.afupDayDate|date('Y') }}</h2>
+    </section>
+
+    {% if config.afupDayInclurePhotosEditionPrecedente %}
+        <section data-background-image="img/fond-afup.png"
+                 data-background-opacity="0.5">
+            <h3>L'AFUP Day en {{ config.afupDayInclurePhotosEditionPrecedente }}</h3>
+
+            <div class="r-hstack justify-center">
+                <div style="background-image: url('img/afup-day/top-left.jpg'); background-size: cover; width: 800px; height: 250px; margin: 10px;"></div>
+                <div style="background-image: url('img/afup-day/top-right.jpg'); background-size: cover; width: 800px; height: 250px; margin: 10px;"></div>
+            </div>
+            <div class="r-hstack justify-center">
+                <div style="background-image: url('img/afup-day/bottom-left.jpg'); background-size: cover; width: 800px; height: 250px; margin: 10px;"></div>
+                <div style="background-image: url('img/afup-day/bottom-right.jpg'); background-size: cover; width: 800px; height: 250px; margin: 10px;"></div>
+            </div>
+        </section>
+    {% endif %}
+
+    <section data-auto-animate
+             data-background-image="img/fond-afup.png"
+             data-background-opacity="0.5">
+        <div class="r-hstack" style="gap: 0;">
+            <div>
+                <img src="img/logos/afup-day.svg" />
+                {% if config.afupDayInclureQRCodeCFP %}
+                <img src="img/qr/cfp.png" />
+                {% endif %}
+            </div>
+            <div class="r-vstack">
+                <h2>AFUP Day 2025</h2>
+
+                <div class="items-center r-vstack" style="font-size: 40px">
+                    <p>Aura lieu le {{ config.afupDayDate|format_date(locale='fr', pattern='EEEE d MMMM') }}</p>
+                    <p>{{ config.afupDayVilles|join(', ') }}</p>
+                    <p>CFP terminé / ouvert / arrive / X propositions</p>
+                    {% if config.afupDayDateProgrammeDisponible %}
+                        <p>
+                            Programme dispo
+                            {% if config.afupDayDateProgrammeDisponible < date() %}
+                                depuis
+                            {% endif %}
+                            le {{ config.afupDayDateProgrammeDisponible|format_date(locale='fr', pattern='d MMMM') }}
+                        </p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </section>
+</section>

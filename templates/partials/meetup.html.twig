@@ -1,0 +1,39 @@
+<section>
+    <section data-auto-animate
+             data-background-image="img/fond-afup.png"
+             data-background-opacity="0.5">
+        <div>
+            <img src="img/logos/meetup.png" style="width: 200px;" />
+        </div>
+        <div>
+            <img src="img/logos/sponsor.png" style="width: 400px;" />
+        </div>
+        {% if config.withJetbrainsGift %}
+        <div>
+            <img src="img/logos/jetbrains.svg" style="width: 200px;" />
+        </div>
+        {% endif %}
+    </section>
+
+    <section data-background-image="img/fond-afup.png"
+             data-background-opacity="0.5">
+        <div>
+            <div>
+                <img src="img/logos/sponsor.png" style="width: 300px;" />
+            </div>
+        </div>
+
+        <div class="r-vstack" style="gap: 30px;">
+            {% for talk in config.talks %}
+            <div>
+                <p style="font-size: 30px; text-align: left;">
+                    “{{ talk.title }}”
+                </p>
+                <p style="font-size: 32px; text-align: left; padding-left: 40px;">
+                    &mdash; <strong>{{ talk.speaker }}</strong>
+                </p>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+</section>

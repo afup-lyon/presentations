@@ -1,0 +1,20 @@
+<section data-auto-animate
+         data-background-image="img/fond-afup.png"
+         data-background-opacity="0.5">
+    <div class="r-hstack justify-center items-center">
+        <div>
+            <img src="img/logos/antenne-full.svg" height="80" />
+        </div>
+    </div>
+
+    <table>
+        {% for contact in config.contacts %}
+            <tr>
+                <td>{{ contact.name }}</td>
+                <td>
+                    <a href="{{ contact.url }}">{{ contact.label }}</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</section>
