@@ -11,9 +11,11 @@ use Symfony\Component\Console\Output\OutputInterface;
 use Symfony\Component\Console\SingleCommandApplication;
 use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Path;
+use Symfony\Component\Process\Process;
 
 (new SingleCommandApplication())
     ->addOption('override', null, InputOption::VALUE_OPTIONAL, 'Écraser le dossier existant', false)
+    ->addOption('build', null, InputOption::VALUE_OPTIONAL, 'Lancer le build à la fin de la génération', false)
     ->setCode(function (InputInterface $input, OutputInterface $output): int {
         $io = new SymfonyStyle($input, $output);
 
@@ -59,10 +61,29 @@ use Symfony\Component\Filesystem\Path;
         $io->success('Slides générées : ' . $newPath);
 
         $relative = Path::makeRelative($newPath, __DIR__ . '/../');
-        $io->block([
-            "Pour lancer la présentation :",
-            "cd ./$relative && npm install && npm run build && npm run start",
-        ]);
+
+        if ($input->getOption('build') === null) {
+            $process = Process::fromShellCommandline("cd ./$relative && npm install && npm run build");
+            $process->start();
+
+            $io->note('Building ...');
+            $section = $output->section();
+            $section->setMaxHeight(20);
+
+            foreach ($process as $data) {
+                $section->write($data);
+            }
+
+            $io->block([
+                "Pour lancer la présentation :",
+                "cd ./$relative && npm run start",
+            ]);
+        } else {
+            $io->block([
+                "Pour lancer la présentation :",
+                "cd ./$relative && npm install && npm run build && npm run start",
+            ]);
+        }
 
         return Command::SUCCESS;
     })
