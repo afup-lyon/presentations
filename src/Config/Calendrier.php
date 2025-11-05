@@ -17,4 +17,11 @@ final readonly class Calendrier
 
         return $this;
     }
+
+    public function customDate(string $date, string $title): self
+    {
+        $this->config->calendrierAntenne[] = new DateCalendrier($date, $title);
+
+        return $this;
+    }
 }

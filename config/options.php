@@ -46,14 +46,14 @@ return Slides::new('2025-09-09')
 
     ->calendrierAntenne(fn (Calendrier $calendrier) => $calendrier
         ->date('2025-09-10', 'Forum !')
-        // ->date('2025-xx-10', 'Apéro post forum') TODO: la date
+        ->date('2025-10-01', 'Apéro post forum') // TODO: la date
         ->date('2025-11-06', 'Meetup')
         ->date('2025-12-09', 'Apéro de Noël')
         ->date('2026-01-08', 'Meetup')
         ->date('2026-02-03', 'Meetup')
-        // ->date('2026-03-xx', 'Super Apéro PHP') TODO: la date
+        ->date('2026-03-01', 'Super Apéro PHP') // TODO: la date
         ->date('2026-04-07', 'Meetup')
-        // ->date('2026-05-xx', 'Apéro') TODO: la date
+        ->date('2026-05-01', 'Apéro') // TODO: la date
         ->date('2025-06-12', "Élections de l'antenne")
 
     )
