@@ -1,0 +1,39 @@
+:root {
+  --r-heading-text-transform: none;
+}
+
+ul.spaced li {
+  margin: 30px 0;
+}
+
+#logo-antenne {
+  position: fixed;
+  bottom: 10px;
+  left: 10px;
+  width: 200px;
+  z-index: 1000;
+
+  opacity: 0;
+  -moz-transition: opacity .25s ease-in-out , top .25s ease-in-out;
+  -o-transition: opacity .25s ease-in-out , top .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out , top .25s ease-in-out;
+  transition: opacity .25s ease-in-out , top .25s ease-in-out;
+}
+
+.small-meetup-box {
+  background: #999; width: 50px; height: 50px; margin: 10px; border-radius: 5px;
+}
+
+.text-afup {
+  color: #36a7df;
+}
+
+.benevole-photo {
+  width: 100px;
+  /*filter: grayscale(1);*/
+  margin: 0 !important;
+}
+
+.no-margin {
+  margin: 0;
+}
