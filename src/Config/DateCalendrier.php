@@ -9,7 +9,7 @@ use DateTimeImmutable;
 final readonly class DateCalendrier
 {
     public function __construct(
-        public DateTimeImmutable $date,
+        public DateTimeImmutable|string $date,
         public string $title,
     ) {
     }
