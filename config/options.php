@@ -10,7 +10,7 @@ use AfupLyon\Slides\Config\Intro;
 use AfupLyon\Slides\Config\Talks;
 use AfupLyon\Slides\Slides;
 
-return Slides::new('2025-11-06')
+return Slides::new('2025-12-09')
 
     ->withJetbrainsGift()
 
@@ -29,18 +29,18 @@ return Slides::new('2025-11-06')
 
     ->introduction(fn (Intro $intro) => $intro
         ->association()
-        // ->barometre()
+        ->barometre()
         ->antennes()
         // ->forum()
     )
 
     ->afupDay(fn (AfupDay $afupDay) => $afupDay
-        ->date('2025-05-22')
+        ->date('2026-05-22')
         ->villes('Lyon', 'Bordeaux', 'Lille', 'Paris')
-       ->inclureQRCodeCFP()
+       // ->inclureQRCodeCFP()
        ->quantitePropositions(50)
        ->earlyBirdsEncoreDisponibles()
-        ->inclurePhotosEditionPrecedente(2024)
+        ->inclurePhotosEditionPrecedente(2025)
         // ->dateProgrammeDisponible('2025-01-07')
     )
 
@@ -48,7 +48,7 @@ return Slides::new('2025-11-06')
         // ->date('2025-09-10', 'Forum !')
         // ->date('2025-10-01', 'Apéro post forum') // TODO: la date
         // ->date('2025-11-06', 'Meetup')
-        ->date('2025-12-09', 'Apéro de Noël 🎄')
+        // ->date('2025-12-09', 'Apéro de Noël 🎄')
         ->date('2026-01-08', 'Meetup Atelier 👨‍💻')
         ->date('2026-02-03', 'Meetup')
         ->date('2026-03-01', 'Super Apéro PHP 🍻') // TODO: la date
@@ -68,8 +68,8 @@ return Slides::new('2025-11-06')
     )
 
     ->talks(fn (Talks $talks) => $talks
-        ->with('Florian Bogey', 'Git sous le capot')
-        ->with('Vincent Amstoutz', 'API Platform : repenser les filtres')
+        ->with('Gautier Deleglise', 'Long live Faker PHP')
+        ->with('Alexandre Daubois', 'Au cœur d’une core team')
     )
 
 ;
