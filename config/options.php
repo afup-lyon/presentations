@@ -10,7 +10,7 @@ use AfupLyon\Slides\Config\Intro;
 use AfupLyon\Slides\Config\Talks;
 use AfupLyon\Slides\Slides;
 
-return Slides::new('2025-12-09')
+return Slides::new('2026-01-08')
 
     ->withJetbrainsGift()
 
@@ -39,7 +39,7 @@ return Slides::new('2025-12-09')
         ->villes('Lyon', 'Bordeaux', 'Lille', 'Paris')
        // ->inclureQRCodeCFP()
        ->quantitePropositions(50)
-       ->earlyBirdsEncoreDisponibles()
+       // ->earlyBirdsEncoreDisponibles()
         ->inclurePhotosEditionPrecedente(2025)
         // ->dateProgrammeDisponible('2025-01-07')
     )
@@ -49,7 +49,7 @@ return Slides::new('2025-12-09')
         // ->date('2025-10-01', 'Apéro post forum') // TODO: la date
         // ->date('2025-11-06', 'Meetup')
         // ->date('2025-12-09', 'Apéro de Noël 🎄')
-        ->date('2026-01-08', 'Meetup Atelier 👨‍💻')
+        // ->date('2026-01-08', 'Meetup Atelier 👨‍💻')
         ->date('2026-02-03', 'Meetup')
         ->date('2026-03-01', 'Super Apéro PHP 🍻') // TODO: la date
         ->date('2026-04-07', 'Meetup')
@@ -67,9 +67,9 @@ return Slides::new('2025-12-09')
         ->mail('antenne-lyon@afup.org')
     )
 
-    ->talks(fn (Talks $talks) => $talks
-        ->with('Gautier Deleglise', 'Long live Faker PHP')
-        ->with('Alexandre Daubois', 'Au cœur d’une core team')
-    )
+    // ->talks(fn (Talks $talks) => $talks
+    //     ->with('Gautier Deleglise', 'Long live Faker PHP')
+    //     ->with('Alexandre Daubois', 'Au cœur d’une core team')
+    // )
 
 ;
