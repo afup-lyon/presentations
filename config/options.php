@@ -10,7 +10,7 @@ use AfupLyon\Slides\Config\Intro;
 use AfupLyon\Slides\Config\Talks;
 use AfupLyon\Slides\Slides;
 
-return Slides::new('2026-01-08')
+return Slides::new('2026-02-04')
 
     ->withJetbrainsGift()
 
@@ -29,7 +29,7 @@ return Slides::new('2026-01-08')
 
     ->introduction(fn (Intro $intro) => $intro
         ->association()
-        ->barometre()
+        // ->barometre()
         ->antennes()
         // ->forum()
     )
@@ -38,7 +38,7 @@ return Slides::new('2026-01-08')
         ->date('2026-05-22')
         ->villes('Lyon', 'Bordeaux', 'Lille', 'Paris')
        // ->inclureQRCodeCFP()
-       ->quantitePropositions(50)
+       // ->quantitePropositions(50)
        // ->earlyBirdsEncoreDisponibles()
         ->inclurePhotosEditionPrecedente(2025)
         // ->dateProgrammeDisponible('2025-01-07')
@@ -50,12 +50,12 @@ return Slides::new('2026-01-08')
         // ->date('2025-11-06', 'Meetup')
         // ->date('2025-12-09', 'Apéro de Noël 🎄')
         // ->date('2026-01-08', 'Meetup Atelier 👨‍💻')
-        ->date('2026-02-03', 'Meetup')
+        // ->date('2026-02-03', 'Meetup')
         ->date('2026-03-01', 'Super Apéro PHP 🍻') // TODO: la date
         ->date('2026-04-07', 'Meetup')
         ->date('2026-05-01', 'Apéro 🍻') // TODO: la date
-        ->date('2025-05-22', "AFUP Day 🐘")
-        ->date('2025-06-12', "Élections de l'antenne 🗳️")
+        ->date('2026-05-22', "AFUP Day 🐘")
+        ->date('2026-06-12', "Élections de l'antenne 🗳️")
 
     )
 
@@ -67,9 +67,9 @@ return Slides::new('2026-01-08')
         ->mail('antenne-lyon@afup.org')
     )
 
-    // ->talks(fn (Talks $talks) => $talks
-    //     ->with('Gautier Deleglise', 'Long live Faker PHP')
-    //     ->with('Alexandre Daubois', 'Au cœur d’une core team')
-    // )
+    ->talks(fn (Talks $talks) => $talks
+        ->with('Kantin Charignon', 'Postman, focus sur les Flows')
+        ->with('Baptiste Langlade', 'Simplifiez-vous la vie, codez en français')
+    )
 
 ;
