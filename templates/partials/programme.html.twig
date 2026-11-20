@@ -1,0 +1,23 @@
+<section class="programme" data-background-image="img/fond-hexagones.png">
+    <div class="canevas">
+        <h1 class="titre">Programme</h1>
+
+        <ul class="deroule">
+            {% for talk in config.talks %}
+                <li>
+                    <img class="icone" src="img/icones/talk.png" alt=""/>
+                    <div>
+                        <p class="talk">“{{ talk.title }}”</p>
+                        <p class="speaker">{{ talk.speaker }}</p>
+                    </div>
+                </li>
+            {% endfor %}
+            {% if config.withDrink %}
+            <li>
+                <img class="icone" src="img/icones/convivial.png" alt=""/>
+                <p class="talk">Échanges et moment convivial</p>
+            </li>
+            {% endif %}
+        </ul>
+    </div>
+</section>

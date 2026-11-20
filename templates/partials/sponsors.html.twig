@@ -1,0 +1,23 @@
+<section class="sponsors" data-background-image="img/fond-hexagones.png">
+    <div class="canevas">
+        <h1 class="titre">Sponsors</h1>
+
+        {% if config.sponsors is not empty %}
+            <div class="logos">
+                {% for sponsor in config.sponsors %}
+                    <img src="img/sponsors/{{ sponsor.logo }}" alt="{{ sponsor.nom }}"/>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        {% if config.withJetbrainsGift %}
+            <div class="jetbrains">
+                <img class="logo" src="img/logos/jetbrains.svg" alt="JetBrains"/>
+                <div class="tirage">
+                    <img class="bebe photo-arrondie" src="img/divers/jetbrains-bebe.jpg" alt=""/>
+                    <img class="roue" src="img/divers/jetbrains-roue.png" alt=""/>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+</section>

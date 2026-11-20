@@ -18,9 +18,12 @@ final readonly class Intro
         return $this;
     }
 
-    public function barometre(): self
+    /**
+     * Baromètre des salaires, veille, Forum PHP et accompagnement des speakers.
+     */
+    public function actions(): self
     {
-        $this->config->introductionBarometre = true;
+        $this->config->introductionActions = true;
 
         return $this;
     }

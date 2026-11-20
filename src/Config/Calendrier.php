@@ -11,16 +11,22 @@ final readonly class Calendrier
     ) {
     }
 
-    public function date(string $date, string $title): self
+    /**
+     * @param string|null $logo fichier de config/img/calendrier/ affiché sous le titre (lieu, partenaire…)
+     */
+    public function date(string $date, string $title, ?string $logo = null): self
     {
-        $this->config->calendrierAntenne[] = new DateCalendrier(Date::new($date, "de l'event $title"), $title);
+        $this->config->calendrierAntenne[] = new DateCalendrier(Date::new($date, "de l'event $title"), $title, $logo);
 
         return $this;
     }
 
-    public function customDate(string $date, string $title): self
+    /**
+     * @param string|null $logo fichier de config/img/calendrier/ affiché sous le titre (lieu, partenaire…)
+     */
+    public function customDate(string $date, string $title, ?string $logo = null): self
     {
-        $this->config->calendrierAntenne[] = new DateCalendrier($date, $title);
+        $this->config->calendrierAntenne[] = new DateCalendrier($date, $title, $logo);
 
         return $this;
     }
