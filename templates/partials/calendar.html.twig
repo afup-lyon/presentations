@@ -1,23 +1,25 @@
-<section data-background-image="img/fond-afup.png"
-         data-background-opacity="0.5">
-    <div class="r-hstack" style="gap: 60px;">
-        <div>
-            <img src="img/logos/antenne-only-icon.svg" style="width: 150px;margin: 0;" />
-        </div>
-        <div>
-            <h2>Calendrier</h2>
-        </div>
-    </div>
+<section class="calendrier" data-background-image="img/fond-hexagones.png">
+    <div class="canevas">
+        <img class="lion" src="img/logos/antenne-only-icon.svg" alt=""/>
 
-    <div class="r-hstack" style="gap: 30px; align-items: start;">
-        <div>
-            <div style="text-align: left; margin-top: 20px; border-top: 2px dashed #c1c1c1;">
-                {% for event in config.calendrierAntenne %}
-                    <p style="font-size: 18px;">
-                        {{ event.date|format_date(locale='fr', pattern='EEEE d MMMM')|capitalize }} 👉 {{ event.title }}
+        <h1 class="titre">Save the<br/>date !</h1>
+
+        <div class="cartes" style="--nombre: {{ config.calendrierAntenne|length }};">
+            {% for event in config.calendrierAntenne %}
+                <div class="hexagone">
+                    <p class="titre-carte">
+                        {%- if event.estTexteLibre -%}
+                            {{ event.date }}
+                        {%- else -%}
+                            {{ event.date|format_date(locale='fr', pattern='EEEE d MMMM') }}
+                        {%- endif -%}
                     </p>
-                {% endfor %}
-            </div>
+                    <p class="texte-espace">{{ event.title }}</p>
+                    {% if event.logo %}
+                        <img class="logo" src="img/calendrier/{{ event.logo }}" alt=""/>
+                    {% endif %}
+                </div>
+            {% endfor %}
         </div>
     </div>
 </section>

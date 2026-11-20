@@ -1,22 +1,23 @@
-<section data-auto-animate
-         data-background-image="img/fond-afup.png"
-         data-background-opacity="0.5">
-    <div style="text-align: center">
-        <div>
-            <img src="img/logos/antenne-full.svg" height="80" />
+{% set rangees = config.benevoles|batch(4) %}
+<section class="benevoles" data-background-image="img/fond-hexagones.png">
+    <div class="canevas">
+        <h1 class="titre">Vos bénévoles</h1>
+
+        <div class="ruche{{ config.benevoles|length > 8 ? ' dense' }}">
+            {% for rangee in rangees %}
+                {# Les rangées de 4 et 2 sont décalées d'une demi-photo pour s'emboîter avec la précédente. #}
+                <div class="rangee{{ loop.index is even and rangee|length is even ? ' decalee' }}">
+                    {% for benevole in rangee %}
+                        <figure class="benevole">
+                            <img class="photo-hexagone" src="img/benevoles/{{ benevole.photo }}" alt=""/>
+                            <figcaption>{{ benevole.nom }}</figcaption>
+                        </figure>
+                    {% endfor %}
+                </div>
+            {% endfor %}
         </div>
-        <h4>Vos bénévoles</h4>
-        <div style="display: flex;justify-content: center;">
-            <div style="display: flex;flex-direction: row;align-items: center">
-                {% for benevole in config.benevoles %}
-                    <div>
-                        <img class="benevole-photo" src="img/benevoles/{{ benevole.photo }}" />
-                        <div style="font-size: 20px;">
-                            {{ benevole.nom }}
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </div>
+
+        <img class="meme photo-arrondie" src="img/divers/meme-benevoles.jpg"
+             alt="Who are we? The AFUP team of Lyon! What do we want? More volunteers!"/>
     </div>
 </section>

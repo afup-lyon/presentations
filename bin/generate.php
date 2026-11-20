@@ -39,14 +39,28 @@ use Symfony\Component\Process\Process;
             $io->warning('Aucun bénévole');
         }
 
+        if ($config->presentateur === null) {
+            $io->warning('Personne ne présente : la slide de bienvenue sera sans photo (voir presentePar())');
+        } else if ($config->presentateurBenevole === null) {
+            $io->warning("« {$config->presentateur} » ne fait pas partie des bénévoles : la slide de bienvenue sera sans photo");
+        }
+
         if (count($config->contacts) === 0) {
             $io->warning('Aucune info de contact');
         }
 
+        if (count($config->calendrierAntenne) > 5) {
+            $io->warning("Plus de 5 dates dans le calendrier, l'affichage sera à revoir");
+        }
+
+        if (count($config->sponsors) === 0) {
+            $io->warning('Aucun sponsor');
+        }
+
         if (count($config->talks) === 0) {
             $io->warning('Aucun talk');
-        } else if (count($config->talks) > 2) {
-            $io->warning("Plus de 2 talks, l'affichage sera à revoir");
+        } else if (count($config->talks) > 3) {
+            $io->warning("Plus de 3 talks, l'affichage sera à revoir");
         }
 
         $generator = new SlidesGenerator();

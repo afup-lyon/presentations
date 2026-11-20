@@ -1,0 +1,73 @@
+/**
+ * Thème AFUP Lyon, repris du deck Canva des meetups.
+ *
+ * Les polices sont embarquées dans css/fonts/afup : la présentation doit
+ * s'afficher correctement sans connexion Internet.
+ */
+
+
+// Default mixins and settings -----------------
+@import "../template/mixins";
+@import "../template/settings";
+// ---------------------------------------------
+
+
+// Chemins relatifs à dist/theme/afup-lyon.css
+@font-face {
+	font-family: 'Belgrano';
+	src: url('../../css/fonts/afup/belgrano.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Anton';
+	src: url('../../css/fonts/afup/anton.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+	font-display: block;
+}
+
+@font-face {
+	font-family: 'Roboto Condensed';
+	src: url('../../css/fonts/afup/roboto-condensed.woff2') format('woff2');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: block;
+}
+
+
+// Override theme settings (see ../template/settings.scss)
+$backgroundColor: #f2f6fe;
+
+$mainColor: #18213e;
+$headingColor: #18213e;
+
+$mainFontSize: 42px;
+$mainFont: 'Roboto Condensed', 'Arial Narrow', sans-serif;
+$headingFont: 'Belgrano', Georgia, serif;
+$headingTextShadow: none;
+$headingLetterSpacing: 0.03em;
+$headingTextTransform: uppercase;
+$headingFontWeight: 400;
+$headingLineHeight: 1.1;
+$linkColor: #2a76dd;
+$linkColorHover: lighten( $linkColor, 15% );
+$selectionBackgroundColor: lighten( $linkColor, 25% );
+
+$heading1Size: 2.9em;
+$heading2Size: 2em;
+$heading3Size: 1.4em;
+$heading4Size: 1em;
+
+$overlayElementBgColor: 0, 0, 0;
+$overlayElementFgColor: 240, 240, 240;
+
+// Change text colors against dark slide backgrounds
+@include dark-bg-text-color(#fff);
+
+
+// Theme template ------------------------------
+@import "../template/theme";
+// ---------------------------------------------

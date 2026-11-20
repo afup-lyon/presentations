@@ -1,20 +1,23 @@
-<section data-auto-animate
-         data-background-image="img/fond-afup.png"
-         data-background-opacity="0.5">
-    <div class="r-hstack justify-center items-center">
-        <div>
-            <img src="img/logos/antenne-full.svg" height="80" />
-        </div>
-    </div>
+<section class="contacts" data-background-image="img/fond-hexagones.png">
+    <div class="canevas">
+        <img class="qr" src="img/qr/contacts.png" alt="QR code de l'antenne"/>
+        <img class="fleche" src="img/formes/fleche-gauche.svg" alt=""/>
 
-    <table>
-        {% for contact in config.contacts %}
-            <tr>
-                <td>{{ contact.name }}</td>
-                <td>
-                    <a href="{{ contact.url }}">{{ contact.label }}</a>
-                </td>
-            </tr>
-        {% endfor %}
-    </table>
+        <ul class="liens">
+            {% for contact in config.contacts %}
+                {% if contact.name == 'Mail' %}
+                    <li class="texte-espace mail">
+                        <img class="icone" src="img/icones/mail.png" alt="Mail"/>
+                        <a href="{{ contact.url }}">{{ contact.label }}</a>
+                    </li>
+                {% else %}
+                    <li class="texte-espace">
+                        <a href="{{ contact.url }}" title="{{ contact.name }}">{{ contact.label }}</a>
+                    </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+
+        <img class="lion" src="img/logos/antenne-only-icon.svg" alt=""/>
+    </div>
 </section>

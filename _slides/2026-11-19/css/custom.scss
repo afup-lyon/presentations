@@ -1,0 +1,667 @@
+/**
+ * Mise en page des slides AFUP Lyon, reprise du deck Canva.
+ *
+ * Les slides font 1920×1080 (voir Reveal.initialize) : les positions
+ * ci-dessous sont en pixels de ce canevas, mesurées sur le PDF Canva.
+ * Les chemins d'images sont relatifs à dist/reveal.css.
+ */
+
+$afup-marine: #18213e;
+$afup-bleu: #5dadec;
+$afup-rose: #e1227b;
+
+/* ------------------------------------------------------------------ */
+/* Socle                                                              */
+/* ------------------------------------------------------------------ */
+
+#logo-antenne {
+  position: fixed;
+  bottom: 1.6vw;
+  left: 1.2vw;
+  width: 21vw;
+  z-index: 1000;
+
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+}
+
+.reveal .slides section {
+  padding: 0;
+}
+
+.reveal .canevas {
+  position: relative;
+  width: 1920px;
+  height: 1080px;
+  box-sizing: border-box;
+  color: $afup-marine;
+  font-size: 32px;
+  line-height: 1.3;
+  text-align: center;
+
+  img {
+    margin: 0;
+    max-width: none;
+    max-height: none;
+  }
+
+  p, h1, h2, ul, figure {
+    margin: 0;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  a {
+    color: inherit;
+  }
+
+  > * {
+    position: absolute;
+  }
+
+  > .titre {
+    top: 105px;
+    left: 0;
+    right: 0;
+    font-size: 120px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Composants                                                         */
+/* ------------------------------------------------------------------ */
+
+// Carte hexagonale : fond bleu clair et bordure bleue, contenu centré.
+.reveal .hexagone {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  box-sizing: border-box;
+  width: 405px;
+  aspect-ratio: 420 / 471;
+  padding: 0 34px;
+  background: url('../img/formes/hexagone.svg') center / 100% 100% no-repeat;
+}
+
+// Photo découpée en hexagone (largeur fixée par la slide).
+.reveal .photo-hexagone {
+  display: block;
+  aspect-ratio: 408 / 459;
+  object-fit: cover;
+  -webkit-mask: url('../img/formes/hexagone-masque.svg') center / 100% 100% no-repeat;
+  mask: url('../img/formes/hexagone-masque.svg') center / 100% 100% no-repeat;
+}
+
+// Bordure bleue qui suit la forme de l'image (hexagone, détourage…).
+.reveal .bordure-bleue {
+  filter:
+    drop-shadow(4px 0 0 $afup-bleu)
+    drop-shadow(-4px 0 0 $afup-bleu)
+    drop-shadow(0 4px 0 $afup-bleu)
+    drop-shadow(0 -4px 0 $afup-bleu);
+}
+
+.reveal .photo-arrondie {
+  display: block;
+  object-fit: cover;
+  border-radius: 24px;
+}
+
+.reveal .titre-carte {
+  font-family: 'Anton', 'Impact', sans-serif;
+  font-size: 36px;
+  line-height: 1.2;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.reveal .texte-espace {
+  font-size: 38px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------------ */
+/* Bienvenue                                                          */
+/* ------------------------------------------------------------------ */
+
+.reveal .bienvenue {
+  .canevas > .titre {
+    top: 85px;
+    text-transform: none;
+  }
+
+  .logo {
+    top: 425px;
+    left: 385px;
+    width: 1150px;
+  }
+
+  // GIF 480×244, bas aligné sur celui de la photo de la personne qui présente
+  .coucou {
+    top: 722px;
+    left: 113px;
+    width: 480px;
+    transform: rotate(-3deg);
+  }
+
+  .presentateur {
+    top: 690px;
+    left: 1562px;
+    width: 245px;
+
+    .photo-hexagone {
+      width: 100%;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Intro : l'association                                              */
+/* ------------------------------------------------------------------ */
+
+.reveal .association {
+  .entete {
+    top: 105px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+
+    img {
+      height: 150px;
+    }
+  }
+
+  .nom {
+    font-family: 'Belgrano', Georgia, serif;
+    font-size: 62px;
+    line-height: 1.35;
+  }
+
+  .cartes {
+    top: 352px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 157px;
+  }
+
+  .hexagone {
+    justify-content: flex-start;
+    padding-top: 62px;
+    font-size: 28px;
+  }
+
+  .icone {
+    height: 125px;
+  }
+
+  .qr {
+    top: 750px;
+    left: 1554px;
+    width: 343px;
+  }
+
+  .fleche {
+    top: 805px;
+    left: 1400px;
+    width: 180px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Intro : ce que fait l'AFUP                                          */
+/* ------------------------------------------------------------------ */
+
+.reveal .actions {
+  .qr {
+    top: 54px;
+    left: 49px;
+    width: 365px;
+  }
+
+  .fleche {
+    top: 394px;
+    left: 216px;
+    width: 202px;
+  }
+
+  .hexagone {
+    position: absolute;
+  }
+
+  .carte-1 { top: 125px; left: 430px; }
+  .carte-2 { top: 125px; left: 862px; }
+  .carte-3 { top: 506px; left: 641px; }
+  .carte-4 { top: 506px; left: 1083px; }
+
+  .icone {
+    height: 135px;
+  }
+
+  .photo-arrondie {
+    width: 265px;
+    height: 160px;
+  }
+
+  .logo-afup {
+    top: 398px;
+    left: 1387px;
+    width: 427px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Intro : les antennes                                               */
+/* ------------------------------------------------------------------ */
+
+.reveal .antennes {
+  .photo-hexagone {
+    width: 235px;
+  }
+
+  .photo-1 { top: 331px; left: 96px; }
+  .photo-2 { top: 307px; left: 341px; }
+  .photo-3 { top: 432px; left: 610px; }
+  .photo-4 { top: 485px; left: 854px; }
+  .photo-5 { top: 672px; left: 298px; }
+  .photo-6 { top: 715px; left: 542px; }
+
+  .texte-espace {
+    letter-spacing: 0.15em;
+  }
+
+  .legende-meetups { top: 268px; left: 173px; }
+  .legende-aperos { top: 417px; left: 840px; }
+  .legende-afup-day { top: 792px; left: 77px; }
+
+  .carte {
+    top: 288px;
+    left: 1066px;
+    width: 763px;
+    // La carte a un fond blanc : on le fond dans le fond bleuté de la slide.
+    mix-blend-mode: multiply;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Intro : Forum PHP                                                  */
+/* ------------------------------------------------------------------ */
+
+.reveal .forum {
+  .photos {
+    top: 300px;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 760px);
+    justify-content: center;
+    gap: 30px;
+  }
+
+  .photo-arrondie {
+    width: 760px;
+    height: 330px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Bénévoles                                                          */
+/* ------------------------------------------------------------------ */
+
+.reveal .benevoles {
+  .ruche {
+    top: 318px;
+    left: 0;
+    width: 1510px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .rangee {
+    display: flex;
+    gap: 16px;
+
+    & + .rangee {
+      margin-top: -35px;
+    }
+
+    // Les noms de la première rangée sont au-dessus des photos, les autres en dessous.
+    &:first-child .benevole {
+      flex-direction: column-reverse;
+    }
+
+    // Une rangée paire de même parité que la précédente est décalée d'une demi-photo.
+    &.decalee {
+      transform: translateX(128px);
+    }
+  }
+
+  .benevole {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    width: 240px;
+  }
+
+  .photo-hexagone {
+    width: 240px;
+  }
+
+  figcaption {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  .ruche.dense {
+    top: 290px;
+
+    .rangee + .rangee {
+      margin-top: 10px;
+    }
+
+    .benevole,
+    .photo-hexagone {
+      width: 175px;
+    }
+
+    .rangee.decalee {
+      transform: translateX(95px);
+    }
+
+    .rangee:first-child .benevole {
+      flex-direction: column;
+    }
+  }
+
+  .meme {
+    top: 571px;
+    left: 1300px;
+    width: 552px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Contacts                                                           */
+/* ------------------------------------------------------------------ */
+
+.reveal .contacts {
+  .qr {
+    top: 87px;
+    left: 186px;
+    width: 391px;
+  }
+
+  .fleche {
+    top: 329px;
+    left: 659px;
+    width: 280px;
+  }
+
+  .liens {
+    top: 560px;
+    left: 0;
+    width: 830px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 26px;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .mail {
+      margin-top: 70px;
+    }
+  }
+
+  .icone {
+    width: 72px;
+  }
+
+  .lion {
+    top: 270px;
+    left: 1170px;
+    width: 480px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Save the date                                                      */
+/* ------------------------------------------------------------------ */
+
+.reveal .calendrier {
+  .lion {
+    top: 91px;
+    left: 240px;
+    width: 245px;
+  }
+
+  .canevas > .titre {
+    top: 115px;
+    line-height: 0.92;
+  }
+
+  .cartes {
+    top: 418px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+  }
+
+  .hexagone {
+    width: min(405px, calc((1760px - (var(--nombre) - 1) * 40px) / var(--nombre)));
+    gap: 26px;
+  }
+
+  .texte-espace {
+    font-size: 34px;
+  }
+
+  .logo {
+    max-width: 90%;
+    max-height: 130px;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* AFUP Day                                                           */
+/* ------------------------------------------------------------------ */
+
+.reveal .afup-day {
+  .photo-1 { top: 189px; left: 108px; width: 761px; height: 355px; }
+  .photo-2 { top: 225px; left: 901px; width: 503px; height: 283px; }
+  .photo-3 { top: 575px; left: 108px; width: 591px; height: 316px; }
+  .photo-4 { top: 596px; left: 733px; width: 487px; height: 274px; }
+
+  .legende {
+    top: 920px;
+    left: 108px;
+    font-size: 30px;
+  }
+
+  .grand-logo {
+    top: 240px;
+    left: 250px;
+    width: 800px;
+  }
+
+  .infos {
+    top: 100px;
+    left: 1420px;
+    width: 410px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 34px;
+
+    .logo {
+      width: 250px;
+    }
+
+    .texte-espace {
+      font-size: 34px;
+      line-height: 1.25;
+    }
+
+    .qr {
+      width: 320px;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Sponsors                                                           */
+/* ------------------------------------------------------------------ */
+
+.reveal .sponsors {
+  .logos {
+    top: 380px;
+    left: 100px;
+    right: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 60px 120px;
+
+    img {
+      max-width: 520px;
+      max-height: 195px;
+    }
+  }
+
+  .jetbrains {
+    top: 640px;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+
+    .logo {
+      width: 531px;
+    }
+  }
+
+  // Sans sponsor déclaré, JetBrains prend la place des logos.
+  .titre + .jetbrains {
+    top: 400px;
+  }
+
+  .tirage {
+    position: relative;
+    width: 250px;
+    height: 270px;
+
+    img {
+      position: absolute;
+    }
+
+    .bebe {
+      top: 0;
+      right: 0;
+      width: 198px;
+    }
+
+    .roue {
+      bottom: 0;
+      left: 0;
+      width: 155px;
+    }
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Programme                                                          */
+/* ------------------------------------------------------------------ */
+
+.reveal .programme {
+  .deroule {
+    top: 330px;
+    bottom: 110px;
+    left: 140px;
+    right: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    text-align: center;
+
+    li {
+      display: flex;
+      align-items: center;
+      gap: 28px;
+    }
+  }
+
+  .icone {
+    width: 140px;
+    flex-shrink: 0;
+  }
+
+  .talk,
+  .speaker {
+    font-size: 52px;
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  .talk {
+    max-width: 1400px;
+  }
+
+  .speaker {
+    font-weight: 700;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Merci                                                              */
+/* ------------------------------------------------------------------ */
+
+.reveal .merci {
+  .contenu {
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 110px;
+  }
+
+  h1 {
+    font-size: 125px;
+  }
+
+  .coeur {
+    font-size: 170px;
+    line-height: 1.2;
+  }
+
+  .php-rocks {
+    width: 415px;
+    height: 415px;
+    border-radius: 60px;
+  }
+}
